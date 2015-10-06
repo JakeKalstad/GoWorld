@@ -49,7 +49,7 @@ func Query(urls []string) []io.ReadCloser {
 		select {
 		case r := <-ch:
 			responses = append(responses, r)
-			fmt.Printf("RESPONSE.")
+			fmt.Printf(".")
 			if len(responses) == len(urls) {
 				return responses
 			}
@@ -87,10 +87,9 @@ func GetRank(r RankRequest) (records []Rank, err error) {
 
 func GetCountries() CountryList {
 	var data CountryList
-	bodys := Query([]string{countryUrl})
-	fmt.Println(len(bodys))
-	defer bodys[0].Close()
-	decoder := json.NewDecoder(bodys[0])
+	body := Query([]string{countryUrl})[]
+	defer body.Close()
+	decoder := json.NewDecoder(body)
 	_ = decoder.Decode(&data)
 	return data
 }
