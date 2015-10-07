@@ -93,7 +93,3 @@ func GetCountries() CountryList {
 	_ = decoder.Decode(&data)
 	return data
 }
-
-func main() {
-	GetCountries()
-}
