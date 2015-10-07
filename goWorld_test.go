@@ -1,4 +1,4 @@
-package main
+package goWorld
 
 import "testing"
 import "fmt"

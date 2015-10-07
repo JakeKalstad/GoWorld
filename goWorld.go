@@ -87,7 +87,7 @@ func GetRank(r RankRequest) (records []Rank, err error) {
 
 func GetCountries() CountryList {
 	var data CountryList
-	body := Query([]string{countryUrl})[]
+	body := Query([]string{countryUrl})[0]
 	defer body.Close()
 	decoder := json.NewDecoder(body)
 	_ = decoder.Decode(&data)
